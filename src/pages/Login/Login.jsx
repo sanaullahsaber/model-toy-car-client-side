@@ -1,7 +1,41 @@
-import React from 'react';
-import img from '../../assets/socialLogin/Mobile-login.jpg'
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import img from "../../assets/socialLogin/Mobile-login.jpg";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 const Login = () => {
+  const { signIn} = useContext(AuthContext);
+  
+  const handleLogin = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    if (!email || !password) {
+      alert("Please enter your email address and password.");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters long.");
+      return;
+    }
+
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        alert("Email address or password is incorrect.");
+        console.log(error);
+      });
+  }
+
+  
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
@@ -13,7 +47,7 @@ const Login = () => {
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
             <h1 className="text-3xl text-center font-bold">Login now!</h1>
-            <form>
+            <form onSubmit={handleLogin}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -42,7 +76,11 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <input className="btn bg-rose-600 btn-ghost" type="submit" value="Login" />
+                <input
+                  className="btn bg-rose-600 btn-ghost"
+                  type="submit"
+                  value="Login"
+                />
               </div>
             </form>
             <p className="my-4 text-center">
@@ -51,7 +89,7 @@ const Login = () => {
                 Sign Up
               </Link>
             </p>
-            {/* <SocialLogin></SocialLogin> */}
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
