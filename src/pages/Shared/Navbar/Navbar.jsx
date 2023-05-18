@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../../assets/logo/mtc-logo.png";
 import { FaRegUser } from "react-icons/fa";
 import Nav from "./Nav";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -13,7 +14,9 @@ const Navbar = () => {
           <div className="navbar py-8">
             <div className="flex-1">
               {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
+              <Link to='/'>
               <img src={logo} alt="" />
+              </Link>
             </div>
             <div className="flex-none gap-2">
               <div className="form-control">

@@ -1,5 +1,5 @@
 import React from "react";
-import errorLottie from "../../assets/error/90344-spider-404.json";
+import errorLottie from "../../assets/errorpage/90344-spider-404.json";
 import Lottie from "lottie-react";
 import { Link, useRouteError } from "react-router-dom";
 
