@@ -24,7 +24,7 @@ const CarGallery = () => {
   ];
   return (
     <div className='my-10'>
-      <h2 className="text-2xl font-bold mb-4 text-center">Car Gallery</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">Popular Models Right Now:</h2>
       <div className="grid md:grid-cols-3 gap-4">
         {images.map((image, index) => (
           <div key={index} className="p-2">
