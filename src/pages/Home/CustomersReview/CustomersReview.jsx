@@ -101,7 +101,7 @@ const CustomersReview = () => {
       >
         {reviews.map((review) => (
           <SwiperSlide key={review.id}>
-            <div className="h-60 lg:h-72 mb-20 max-w-md mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
+            <div className="h-56 lg:h-80 mb-20 max-w-md mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
               <div className="py-4 px-6">
                 <h2 className="text-gray-800 text-2xl font-bold">
                   {review.title}
