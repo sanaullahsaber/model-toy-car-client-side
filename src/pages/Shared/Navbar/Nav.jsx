@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import './nav.css'
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -96,24 +97,30 @@ const Nav = () => {
               </ul>
             </div>
             <div className="navbar-end">
-              <a className="">
+              <div>
                 {user ? (
-                  <Link onClick={handleLogOut}>Logout</Link>
+                  <div className="profile-wrapper">
+                    <img
+                      className="rounded-full h-10"
+                      src={user.photoURL}
+                      alt="Profile"
+                    />
+                    <div className="tooltip">{user.displayName}</div>
+                  </div>
                 ) : (
-                  <Link to="/login">Login</Link>
+                  ""
                 )}
-              </a>
-            </div>
-            <div>
-              {user ? (
-                <img
-                  className="rounded-full h-10"
-                  src={user.photoURL}
-                  alt="Profile"
-                />
-              ) : (
-                ""
-              )}
+              </div>
+              {/* login and logout */}
+              <div>
+                <a className="">
+                  {user ? (
+                    <Link onClick={handleLogOut}>Logout</Link>
+                  ) : (
+                    <Link to="/login">Login</Link>
+                  )}
+                </a>
+              </div>
             </div>
           </div>
         </div>

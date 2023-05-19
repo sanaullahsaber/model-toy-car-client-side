@@ -1,0 +1,14 @@
+.tooltip {
+  position: absolute;
+  visibility: hidden;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  z-index: 1;
+}
+
+.profile-wrapper:hover .tooltip {
+  visibility: visible;
+}
