@@ -45,8 +45,8 @@ const Nav = () => {
                   <li>
                     <Link to="/all-toys">All Toys</Link>
                   </li>
-                  <div >
-                    {user ? (
+                  <div>
+                    {user?.email ? (
                       <>
                         <li>
                           <Link to="/my-toys">My Toys</Link>
@@ -56,7 +56,7 @@ const Nav = () => {
                         </li>
                       </>
                     ) : (
-                      ""
+                      " "
                     )}
                   </div>
 
@@ -78,7 +78,7 @@ const Nav = () => {
                   <Link to="/all-toys">All Toys</Link>
                 </li>
                 <div style={{ display: "flex" }}>
-                  {user ? (
+                  {user?.email ? (
                     <>
                       <li style={{ marginRight: "1rem" }}>
                         <Link to="/my-toys">My Toys</Link>
