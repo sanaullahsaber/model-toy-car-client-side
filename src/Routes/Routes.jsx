@@ -46,7 +46,8 @@ const router = createBrowserRouter([
       },
       {
         path: "view-details/:id",
-        element: <CarViewDetails></CarViewDetails>
+        element: <CarViewDetails></CarViewDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/toycars/id/${params.id}`)
       },
     ],
   },
