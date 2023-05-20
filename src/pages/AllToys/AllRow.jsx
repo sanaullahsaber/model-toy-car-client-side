@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AllRow = ({booking}) => {
-  const { sellerName, name, subCategory, price, quantity, } = booking;
+  const { _id,sellerName, name, subCategory, price, quantity, } = booking;
   return (
     <tr>
       {/* <th>
@@ -29,7 +29,7 @@ const AllRow = ({booking}) => {
       <td>${price}</td>
       <td>{quantity}</td>
       <th>
-        <Link to='/' className="btn hover:bg-zinc-500 hover:text-black bg-rose-600 text-white">View Detail</Link>
+        <Link to={`/all-toy-details/${_id}`} className="btn hover:bg-zinc-500 hover:text-black bg-rose-600 text-white">View Detail</Link>
       </th>
     </tr>
   );

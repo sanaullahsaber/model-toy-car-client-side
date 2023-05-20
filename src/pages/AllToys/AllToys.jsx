@@ -15,7 +15,7 @@ const AllToys = () => {
 
   return (
     <div className="max-w-7xl mx-auto my-10">
-      <h2 className="text-5xl">Your Bookings:{bookings.length}</h2>
+      <h2 className="text-2xl">Your Bookings:{bookings.length}</h2>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           {/* head */}
