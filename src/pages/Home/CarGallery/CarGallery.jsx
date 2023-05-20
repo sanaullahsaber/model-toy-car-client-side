@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import image1 from "../../../assets/car-gallery/bentley-gtr-3-white-1-400x267.jpg";
 import image2 from "../../../assets/car-gallery/bentley-mulsanne-julep-yellow-1-almost-real-400x267.jpg";
@@ -23,9 +23,16 @@ const CarGallery = () => {
     { src: image9, name: "Mercedes – Maybach S-Class 2019 Diamond White" },
   ];
   return (
-    <div className='my-10'>
-      <h2 className="text-2xl font-bold mb-4 text-center">Popular Models Right Now:</h2>
-      <div className="grid md:grid-cols-3 gap-4">
+    <div className="my-10">
+      <h2 className="text-2xl font-bold mb-4 text-center">
+        Popular Models Right Now:
+      </h2>
+      <div
+        className="grid md:grid-cols-3 gap-4"
+        data-aos="zoom-in"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1000"
+      >
         {images.map((image, index) => (
           <div key={index} className="p-2">
             <img

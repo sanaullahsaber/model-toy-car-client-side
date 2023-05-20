@@ -17,7 +17,8 @@ const MyToys = () => {
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, [user?.email, sortingOrder]);
-  // flsfjslfj star upsdate lfjsldfhslfsdlfsfhofjofjofjosfosfofjosrfjseorjweorweo
+  
+  // star update here if we get back then just click crtl+z and  go back
   return (
     <div className="max-w-7xl mx-auto mb-52">
       <h2 className="text-2xl">My Toys:{bookings.length}</h2>
@@ -32,7 +33,7 @@ const MyToys = () => {
           <option value="asc">Ascending</option>
         </select>
       </div>
-      
+
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           {/* head */}
