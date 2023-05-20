@@ -5,7 +5,7 @@ import Car from './Car';
 
 const ShowByCategoryTab = () => {
   const [cars, setCars] = useState([]);
-  const [activeTab, setActiveTab] = useState("text")
+  const [activeTab, setActiveTab] = useState("sports")
 
 
   useEffect(() => {

@@ -23,7 +23,7 @@ const SocialLogin = () => {
           onClick={handleGoogleSignIn}
           className="btn btn-circle btn-ghost bg-rose-600"
         >
-          G
+          Google
         </button>
       </div>
     </div>

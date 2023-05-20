@@ -8,6 +8,7 @@ import AllToys from "../pages/AllToys/AllToys";
 import MyToys from "../pages/MyToys/MyToys";
 import AddToy from "../pages/AddToy/AddToy";
 import Blog from "../pages/Blog/Blog";
+import CarViewDetails from "../pages/Shared/CarViewDetails/CarViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -29,20 +30,24 @@ const router = createBrowserRouter([
       },
       {
         path: "all-toys",
-        element: <AllToys></AllToys>
+        element: <AllToys></AllToys>,
       },
       {
         path: "my-toys",
-        element: <MyToys></MyToys>
+        element: <MyToys></MyToys>,
       },
       {
         path: "add-toy",
-        element: <AddToy></AddToy>
+        element: <AddToy></AddToy>,
       },
       {
         path: "blog",
-        element: <Blog></Blog>
-      }
+        element: <Blog></Blog>,
+      },
+      {
+        path: "view-details/:id",
+        element: <CarViewDetails></CarViewDetails>
+      },
     ],
   },
 ]);
