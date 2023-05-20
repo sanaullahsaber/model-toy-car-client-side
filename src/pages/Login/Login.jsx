@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
 import img from "../../assets/socialLogin/Mobile-login.jpg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 const Login = () => {
-  const { signIn} = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log("login page location", location);
+  const from = location.state?.from?.pathname || "/";
   
   const handleLogin = event => {
     event.preventDefault();
@@ -27,6 +31,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         alert("Email address or password is incorrect.");

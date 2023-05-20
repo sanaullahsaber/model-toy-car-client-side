@@ -45,10 +45,10 @@ const Nav = () => {
                   <li>
                     <Link to="/all-toys">All Toys</Link>
                   </li>
-                  <div style={{ display: "flex" }}>
+                  <div >
                     {user ? (
                       <>
-                        <li style={{ marginRight: "1rem" }}>
+                        <li>
                           <Link to="/my-toys">My Toys</Link>
                         </li>
                         <li>
