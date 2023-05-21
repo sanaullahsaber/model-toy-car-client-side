@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
 
 const SocialLogin = () => {
   const { signInWithGoogle } = useContext(AuthContext);
@@ -23,7 +24,7 @@ const SocialLogin = () => {
           onClick={handleGoogleSignIn}
           className="btn btn-circle btn-ghost bg-rose-600"
         >
-          Google
+          <FaGoogle></FaGoogle>
         </button>
       </div>
     </div>
