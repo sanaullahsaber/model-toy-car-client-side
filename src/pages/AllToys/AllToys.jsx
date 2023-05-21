@@ -1,40 +1,39 @@
-import React, { useContext, useEffect, useState } from 'react';
-import AllRow from './AllRow';
-
+import React, { useContext, useEffect, useState } from "react";
+import AllRow from "./AllRow";
 
 const AllToys = () => {
-  
   const [bookings, setBookings] = useState([]);
 
   const [showAll, setShowAll] = useState(false);
 
   const [searchText, setSearchText] = useState("");
 
-  const url = `http://localhost:5000/bookings`;
+  const url = `https://73-model-toy-cars-server.vercel.app/bookings`;
   useEffect(() => {
     fetch(url)
-      .then(res => res.json())
-    .then(data => setBookings(data))
-  },[])
-// now star to update if you feel any bad then just go back with ctrl+z
-  
-   const handleShowAll = () => {
-     setShowAll(true);
-   };
+      .then((res) => res.json())
+      .then((data) => setBookings(data));
+  }, []);
+  // now star to update if you feel any bad then just go back with ctrl+z
 
-   const handleShowLess = () => {
-     setShowAll(false);
+  const handleShowAll = () => {
+    setShowAll(true);
   };
-  
+
+  const handleShowLess = () => {
+    setShowAll(false);
+  };
+
   const handleSearch = () => {
-    fetch(`http://localhost:5000/bookings/search/${searchText}`)
+    fetch(
+      `https://73-model-toy-cars-server.vercel.app/bookings/search/${searchText}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setBookings(data);
       });
-  }
+  };
 
-  
   return (
     <div className="max-w-7xl mx-auto my-10">
       <h2 className="text-2xl">My Toys:{bookings.length}</h2>
@@ -42,12 +41,15 @@ const AllToys = () => {
         <div className="form-control">
           <div className="input-group">
             <input
-              onChange={(e)=> setSearchText(e.target.value)}
+              onChange={(e) => setSearchText(e.target.value)}
               type="text"
               placeholder="Search…"
               className="input input-bordered"
             />
-            <button onClick={handleSearch} className="btn hover:bg-zinc-500 hover:text-black bg-rose-600 text-white btn-square">
+            <button
+              onClick={handleSearch}
+              className="btn hover:bg-zinc-500 hover:text-black bg-rose-600 text-white btn-square"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 "

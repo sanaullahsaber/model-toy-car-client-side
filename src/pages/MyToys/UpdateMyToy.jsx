@@ -1,9 +1,9 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const UpdateMyToy = () => {
   const updateToy = useLoaderData();
-  const {_id} = updateToy
+  const { _id } = updateToy;
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission logic here
@@ -15,12 +15,12 @@ const UpdateMyToy = () => {
     const update = {
       price: price,
       quantity: quantity,
-      description: description
-    }
+      description: description,
+    };
 
     // console.log(update);
 
-    fetch(`http://localhost:5000/bookings/${_id}`, {
+    fetch(`https://73-model-toy-cars-server.vercel.app/bookings/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -34,13 +34,12 @@ const UpdateMyToy = () => {
       });
   };
 
-
   return (
     <div className="max-w-7xl mx-auto ">
       <h2 className="text-center">UpdatedMyToy</h2>
       <div className="max-w-md mx-auto">
         <h2 className="text-2xl mb-4">Updated Here Toy</h2>
-        <form onSubmit={handleSubmit} className='px-5'>
+        <form onSubmit={handleSubmit} className="px-5">
           <div className="mb-4">
             <label htmlFor="price" className="block mb-2 font-semibold">
               Price

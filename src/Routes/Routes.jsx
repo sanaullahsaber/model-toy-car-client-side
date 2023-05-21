@@ -36,22 +36,44 @@ const router = createBrowserRouter([
         element: <AllToys></AllToys>,
       },
       {
-        path: 'all-toy-details/:id',
-        element: <PrivateRoute><AllToyDetails></AllToyDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+        path: "all-toy-details/:id",
+        element: (
+          <PrivateRoute>
+            <AllToyDetails></AllToyDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://73-model-toy-cars-server.vercel.app/bookings/${params.id}`
+          ),
       },
       {
         path: "my-toys",
-        element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <MyToys></MyToys>
+          </PrivateRoute>
+        ),
       },
       {
         path: "bookings/:id",
-        element: <PrivateRoute><UpdateMyToy></UpdateMyToy></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/bookings/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <UpdateMyToy></UpdateMyToy>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://73-model-toy-cars-server.vercel.app/bookings/${params.id}`
+          ),
       },
       {
         path: "add-toy",
-        element: <PrivateRoute><AddToy></AddToy></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AddToy></AddToy>
+          </PrivateRoute>
+        ),
       },
       {
         path: "blog",
@@ -59,8 +81,15 @@ const router = createBrowserRouter([
       },
       {
         path: "view-details/:id",
-        element: <PrivateRoute><CarViewDetails></CarViewDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/toycars/id/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <CarViewDetails></CarViewDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://73-model-toy-cars-server.vercel.app/toycars/id/${params.id}`
+          ),
       },
     ],
   },

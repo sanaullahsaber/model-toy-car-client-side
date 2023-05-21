@@ -11,7 +11,7 @@ const MyToys = () => {
     setSortingOrder(event.target.value);
   };
 
-  const url = `http://localhost:5000/bookings?sellerEmail=${user?.email}&sort=${sortingOrder}`;
+  const url = `https://73-model-toy-cars-server.vercel.app/bookings?sellerEmail=${user?.email}&sort=${sortingOrder}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -21,7 +21,7 @@ const MyToys = () => {
   const handleDelete = (id) => {
     const proceed = confirm("Are You Sure you want to delete");
     if (proceed) {
-      fetch(`http://localhost:5000/bookings/${id}`, {
+      fetch(`https://73-model-toy-cars-server.vercel.app/bookings/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -29,15 +29,13 @@ const MyToys = () => {
           console.log(data);
           if (data.deletedCount > 0) {
             alert("deleted Successful");
-            const remaining = bookings.filter(booking => booking._id !== id);
-            setBookings(remaining)
+            const remaining = bookings.filter((booking) => booking._id !== id);
+            setBookings(remaining);
           }
         });
     }
   };
 
-  
-  
   // star update here if we get back then just click crtl+z and  go back
   return (
     <div className="max-w-7xl mx-auto mb-52">

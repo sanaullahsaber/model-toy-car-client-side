@@ -2,15 +2,16 @@ import React, { useContext } from "react";
 import img from "../../assets/socialLogin/Mobile-login.jpg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import { FaGoogle } from "react-icons/fa";
+
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   console.log("login page location", location);
   const from = location.state?.from?.pathname || "/";
   
-  const handleLogin = event => {
+  const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -39,6 +40,17 @@ const Login = () => {
       });
   }
 
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   
 
   return (
@@ -94,7 +106,17 @@ const Login = () => {
                 Sign Up
               </Link>
             </p>
-            <SocialLogin></SocialLogin>
+            <div>
+              <div className="divider">OR</div>
+              <div className="text-center">
+                <button
+                  onClick={handleGoogleSignIn}
+                  className="btn btn-circle btn-ghost bg-rose-600"
+                >
+                  <FaGoogle></FaGoogle>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

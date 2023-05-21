@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import Car from './Car';
+import Car from "./Car";
 
 const ShowByCategoryTab = () => {
   const [cars, setCars] = useState([]);
-  const [activeTab, setActiveTab] = useState("sports")
-
+  const [activeTab, setActiveTab] = useState("sports");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toycars/${activeTab}`)
-      .then(res => res.json())
-      .then(result => {
+    fetch(`https://73-model-toy-cars-server.vercel.app/toycars/${activeTab}`)
+      .then((res) => res.json())
+      .then((result) => {
         setCars(result);
-    })
-  }, [activeTab])
-  
+      });
+  }, [activeTab]);
+
   const result = cars.filter((car) => car.status == activeTab);
   console.log(result);
 
-   const handleTabClick = (tabName) => {
-     setActiveTab(tabName);
-   };
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+  };
 
   return (
     <>
