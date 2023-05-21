@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 const MyRow = ({ booking, handleDelete }) => {
   const { _id, sellerName, name, subCategory, price, quantity } = booking;
 
+
+
   return (
     <tr>
       {/* <th>
@@ -30,9 +32,11 @@ const MyRow = ({ booking, handleDelete }) => {
       <td>${price}</td>
       <td>{quantity}</td>
       <td>
-        <span className="btn btn-sm bg-zinc-500 hover:text-black hover:bg-rose-600 text-white">
-          Update
-        </span>
+        <Link to={`/bookings/${_id}`}>
+          <span className="btn btn-sm bg-zinc-500 hover:text-black hover:bg-rose-600 text-white">
+            Update
+          </span>
+        </Link>
       </td>
       <td>
         <span
