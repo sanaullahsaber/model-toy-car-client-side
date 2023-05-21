@@ -8,6 +8,8 @@ const AllToys = () => {
 
   const [showAll, setShowAll] = useState(false);
 
+  const [searchText, setSearchText] = useState("");
+
   const url = `http://localhost:5000/bookings`;
   useEffect(() => {
     fetch(url)
@@ -22,7 +24,15 @@ const AllToys = () => {
 
    const handleShowLess = () => {
      setShowAll(false);
-   };
+  };
+  
+  const handleSearch = () => {
+    fetch(`http://localhost:5000/bookings/${searchText}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setBookings(data);
+      });
+  }
 
   
   return (
@@ -32,11 +42,12 @@ const AllToys = () => {
         <div className="form-control">
           <div className="input-group">
             <input
+              onChange={(e)=> setSearchText(e.target.value)}
               type="text"
               placeholder="Search…"
               className="input input-bordered"
             />
-            <button className="btn hover:bg-zinc-500 hover:text-black bg-rose-600 text-white btn-square">
+            <button onClick={handleSearch} className="btn hover:bg-zinc-500 hover:text-black bg-rose-600 text-white btn-square">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 "
