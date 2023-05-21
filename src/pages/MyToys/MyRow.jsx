@@ -46,14 +46,14 @@ const MyRow = ({ booking, handleDelete }) => {
           Delete
         </span>
       </td>
-      <th>
+      {/* <th>
         <Link
           // to={`/all-toy-details/${_id}`}
           className="btn hover:bg-zinc-500 hover:text-black bg-rose-600 text-white"
         >
           Detail
         </Link>
-      </th>
+      </th> */}
     </tr>
   );
 };

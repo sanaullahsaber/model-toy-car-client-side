@@ -36,8 +36,7 @@ const Footer = () => {
             <div className="form-control w-80">
               <label className="label">
                 <span className="label-text">
-                  Sign up for our newsletter to receive specials and up
-                   to date
+                  Sign up for our newsletter to receive specials and up to date
                   product news and releases.
                 </span>
               </label>
@@ -60,7 +59,9 @@ const Footer = () => {
             <img src={logo} alt="" />
             <p>
               ModelToyCar Industries Ltd. <br />
-              Providing reliable vehicle since 1992
+              Providing reliable vehicle since 1992 <br />
+              Copyright © 2023 ModelToycars <br />
+              All rights reserved
             </p>
           </div>
           <div className="md:place-self-center md:justify-self-end">

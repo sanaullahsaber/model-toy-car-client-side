@@ -71,7 +71,7 @@ const MyToys = () => {
               <th>Available Quantity</th>
               <th>Update</th>
               <th>delete</th>
-              <th>View Details</th>
+              {/* <th>View Details</th> */}
             </tr>
           </thead>
           <tbody>
