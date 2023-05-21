@@ -27,7 +27,7 @@ const AllToys = () => {
   };
   
   const handleSearch = () => {
-    fetch(`http://localhost:5000/bookings/search /${searchText}`)
+    fetch(`http://localhost:5000/bookings/search/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setBookings(data);
