@@ -1,8 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const MyRow = ({ booking }) => {
+const MyRow = ({ booking, handleDelete }) => {
   const { _id, sellerName, name, subCategory, price, quantity } = booking;
+
   return (
     <tr>
       {/* <th>
@@ -28,12 +29,25 @@ const MyRow = ({ booking }) => {
       <td>{subCategory}</td>
       <td>${price}</td>
       <td>{quantity}</td>
+      <td>
+        <span className="btn btn-sm bg-zinc-500 hover:text-black hover:bg-rose-600 text-white">
+          Update
+        </span>
+      </td>
+      <td>
+        <span
+          onClick={() => handleDelete(_id)}
+          className="btn btn-sm bg-zinc-500 hover:text-black hover:bg-rose-600 text-white"
+        >
+          Delete
+        </span>
+      </td>
       <th>
         <Link
           // to={`/all-toy-details/${_id}`}
           className="btn hover:bg-zinc-500 hover:text-black bg-rose-600 text-white"
         >
-          View Detail
+          Detail
         </Link>
       </th>
     </tr>

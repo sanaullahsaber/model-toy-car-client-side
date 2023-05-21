@@ -17,6 +17,24 @@ const MyToys = () => {
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, [user?.email, sortingOrder]);
+
+  const handleDelete = (id) => {
+    const proceed = confirm("Are You Sure you want to delete");
+    if (proceed) {
+      fetch(`http://localhost:5000/bookings/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("deleted Successful");
+            const remaining = bookings.filter(booking => booking._id !== id);
+            setBookings(remaining)
+          }
+        });
+    }
+  };
   
   // star update here if we get back then just click crtl+z and  go back
   return (
@@ -49,13 +67,19 @@ const MyToys = () => {
               <th>Sub-category</th>
               <th>Price</th>
               <th>Available Quantity</th>
+              <th>Update</th>
+              <th>delete</th>
               <th>View Details</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
             {bookings.map((booking) => (
-              <MyRow key={`${booking._id}-${sortingOrder}`} booking={booking} />
+              <MyRow
+                key={`${booking._id}-${sortingOrder}`}
+                booking={booking}
+                handleDelete={handleDelete}
+              />
             ))}
           </tbody>
         </table>
